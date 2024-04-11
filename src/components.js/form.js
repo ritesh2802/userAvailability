@@ -11,7 +11,6 @@ function Form(){
 
     const getAvailableDate= async()=>{
         let tempAvailableDates=[]
-        let tempAvailableTime =[]
         let data = await database.users.doc(uid).get();
         // console.log("name ",data.data().name)
         {
@@ -22,15 +21,14 @@ function Form(){
             }  )
         }
         {setAvailableDates(tempAvailableDates)}
-        // setAvailableTime(tempAvailableTime)
-        // {console.log(availableDates)}
-        // {console.log(availableTime)}
-
-  
     }
+
     const getAvailableTimeForAvailableDate=async (availableDateObj)=>{
+       
+
         availableDate=availableDateObj
-        setFormData({...formData,availableDate:availableDate})
+        setFormData({...formData,availableDate:availableDate,availableTime:""})
+
         console.log(availableDate)
         let tempAvailableTime =[]
         let data = await database.users.doc(uid).get();
